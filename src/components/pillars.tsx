@@ -11,19 +11,19 @@ export function Pillars() {
   return (
     <section
       id="pillars"
-      className="grain relative overflow-hidden bg-forest-900 py-12 text-cream-100 lg:py-16"
+      className="grain relative overflow-hidden bg-green-900 py-12 text-cream-100 lg:py-16"
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute top-1/3 -left-40 size-144 rounded-full bg-gold-500/10 blur-3xl"
+        className="pointer-events-none absolute top-1/3 -left-40 size-144 rounded-full bg-coral-500/10 blur-3xl"
       />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow text-gold-300">What We Do</p>
+          <p className="eyebrow text-coral-300">What We Do</p>
           <h2 className="mt-5 font-heading text-3xl leading-[1.06] font-extrabold tracking-[-0.02em] uppercase sm:text-4xl lg:text-[3rem]">
             The 4 Pillars of{" "}
-            <span className="bg-linear-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-coral-200 to-coral-400 bg-clip-text text-transparent">
               Our Movement
             </span>
           </h2>
@@ -38,7 +38,7 @@ export function Pillars() {
               <Reveal key={pillar.id} delay={0.05}>
                 <article
                   className={cn(
-                    "group grid overflow-hidden rounded-3xl border border-cream-100/12 bg-forest-800/50 transition-colors duration-300 hover:border-gold-500/35 lg:grid-cols-2",
+                    "group grid overflow-hidden rounded-3xl border border-cream-100/12 bg-green-800/50 transition-colors duration-300 hover:border-coral-500/35 lg:grid-cols-2",
                   )}
                 >
                   {/* image */}
@@ -57,7 +57,7 @@ export function Pillars() {
                     />
                     <div
                       aria-hidden
-                      className="absolute inset-0 bg-linear-to-t from-forest-950/55 to-transparent lg:bg-linear-to-r"
+                      className="absolute inset-0 bg-linear-to-t from-green-950/55 to-transparent lg:bg-linear-to-r"
                     />
                     <span className="absolute top-5 left-5 font-heading text-5xl font-extrabold text-cream-50/25 tabular-nums">
                       {pillar.index}
@@ -66,7 +66,7 @@ export function Pillars() {
 
                   {/* copy */}
                   <div className="flex flex-col justify-center gap-5 p-7 sm:p-10 lg:p-12">
-                    <span className="grid size-12 place-items-center rounded-full border border-gold-500/40 bg-gold-500/10 text-gold-300">
+                    <span className="grid size-12 place-items-center rounded-full border border-coral-500/40 bg-coral-500/10 text-coral-300">
                       <Icon className="size-6" />
                     </span>
 
@@ -74,7 +74,7 @@ export function Pillars() {
                       <h3 className="font-heading text-2xl font-extrabold tracking-tight text-cream-50 sm:text-[1.75rem]">
                         {pillar.name}
                       </h3>
-                      <p className="mt-1.5 text-[0.78rem] font-semibold tracking-[0.16em] text-gold-400 uppercase">
+                      <p className="mt-1.5 text-[0.78rem] font-semibold tracking-[0.16em] text-coral-300 uppercase">
                         {pillar.english}
                       </p>
                     </div>
@@ -89,7 +89,7 @@ export function Pillars() {
                           key={point}
                           className="flex gap-3 text-[0.9rem] leading-relaxed text-cream-100/75"
                         >
-                          <span className="mt-2 size-1.5 shrink-0 rounded-full bg-gold-500" />
+                          <span className="mt-2 size-1.5 shrink-0 rounded-full bg-coral-500" />
                           {point}
                         </li>
                       ))}

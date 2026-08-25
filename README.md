@@ -92,7 +92,17 @@ components.
   the scroll reveals further down, where hydration has long finished. A
   `<noscript>` rule in `layout.tsx` un-hides those if JS is off entirely.
 - **Brand palette** is defined as Tailwind theme tokens in `globals.css`
-  (`forest-*`, `gold-*`, `cream-*`).
+  (`ink-*` deep green, `cream-*`, `coral-*`). Retuning it is a one-file edit.
+- **Surfaces and text use different tokens on purpose.** `ink-*` is the dark
+  surface scale; copy on light sections uses `text-foreground` and
+  `text-muted-foreground`, and labels on coral use `text-accent-foreground`.
+  A single value cannot be both a comfortable dark background and legible text
+  on cream, so retuning the surfaces never silently breaks the body copy.
+- **Coral has a dark step for a reason.** `coral-500` is the button/accent
+  fill; `coral-600` is the darker shade required for small coral text on cream
+  (and for button hover — hovering must darken, never lighten, or the white
+  label drops below AA). `coral-300`/`coral-200` are the light steps used for
+  text on the deep green sections.
 - **shadcn/ui here is built on Base UI**, so polymorphic components use
   `render={<a href="…" />}` rather than the older `asChild` prop.
 - All animations respect `prefers-reduced-motion`.

@@ -25,8 +25,8 @@ export function WaysToGive() {
     <section id="give" className="bg-cream-50 py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow text-gold-500">Get Involved</p>
-          <h2 className="mt-5 font-heading text-3xl leading-[1.06] font-extrabold tracking-[-0.02em] text-forest-900 sm:text-4xl lg:text-[3rem]">
+          <p className="eyebrow text-coral-700">Get Involved</p>
+          <h2 className="mt-5 font-heading text-3xl leading-[1.06] font-extrabold tracking-[-0.02em] text-green-900 sm:text-4xl lg:text-[3rem]">
             3 Ways You Can Create an Impact Today
           </h2>
         </Reveal>
@@ -38,21 +38,21 @@ export function WaysToGive() {
                 className={cn(
                   "group flex h-full flex-col rounded-3xl border p-7 transition-all duration-300 hover:-translate-y-1 sm:p-8",
                   way.featured
-                    ? "grain border-gold-500/30 bg-forest-900 text-cream-100"
-                    : "border-forest-900/10 bg-white hover:border-gold-500/40 hover:shadow-[0_20px_45px_-28px_rgba(14,42,27,0.5)]",
+                    ? "grain border-coral-500/30 bg-green-700 text-cream-100"
+                    : "border-green-700/10 bg-white hover:border-coral-500/40 hover:shadow-[0_20px_45px_-28px_rgba(38,84,63,0.45)]",
                 )}
               >
                 <div className="flex items-center justify-between">
                   <span
                     className={cn(
                       "font-heading text-3xl font-extrabold tabular-nums",
-                      way.featured ? "text-gold-400/70" : "text-forest-900/15",
+                      way.featured ? "text-coral-400/70" : "text-green-700/35",
                     )}
                   >
                     {way.index}
                   </span>
                   {way.featured && (
-                    <Badge className="rounded-full border-none bg-gold-500 text-[0.65rem] font-semibold tracking-wider text-forest-950 uppercase">
+                    <Badge className="rounded-full border-none bg-coral-600 text-[0.65rem] font-semibold tracking-wider text-cream-50 uppercase">
                       Most popular
                     </Badge>
                   )}
@@ -61,7 +61,7 @@ export function WaysToGive() {
                 <h3
                   className={cn(
                     "mt-6 font-heading text-xl leading-snug font-bold tracking-tight sm:text-[1.35rem]",
-                    way.featured ? "text-cream-50" : "text-forest-900",
+                    way.featured ? "text-cream-50" : "text-green-700",
                   )}
                 >
                   {way.title}
@@ -70,7 +70,7 @@ export function WaysToGive() {
                 <p
                   className={cn(
                     "mt-4 text-[0.92rem] leading-relaxed",
-                    way.featured ? "text-cream-100/70" : "text-forest-800/70",
+                    way.featured ? "text-cream-100/70" : "text-green-800/85",
                   )}
                 >
                   {way.body}
@@ -84,8 +84,8 @@ export function WaysToGive() {
                     className={cn(
                       "group/btn h-11 w-full rounded-full",
                       way.featured
-                        ? "bg-gold-500 text-forest-950 hover:bg-gold-400"
-                        : "border-forest-900/15 bg-transparent text-forest-900 hover:bg-forest-900 hover:text-cream-50",
+                        ? "bg-coral-600 text-cream-50 hover:bg-coral-500"
+                        : "border-green-700/15 bg-transparent text-green-700 hover:bg-green-700 hover:text-cream-50",
                     )}
                   >
                     {way.cta}
@@ -118,34 +118,34 @@ function BankDetails() {
 
   return (
     <Reveal className="mt-6">
-      <div className="rounded-3xl border border-forest-900/10 bg-white p-7 sm:p-9">
+      <div className="rounded-3xl border border-green-900/10 bg-white p-7 sm:p-9">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
-          <h3 className="font-heading text-xl font-bold tracking-tight text-forest-900">
+          <h3 className="font-heading text-xl font-bold tracking-tight text-green-900">
             Bank Transfer Details
           </h3>
-          <p className="text-[0.78rem] text-forest-800/55">
+          <p className="text-[0.78rem] text-green-800/70">
             Prefer NEFT / UPI? Use the account below.
           </p>
         </div>
 
-        <dl className="mt-6 grid gap-px overflow-hidden rounded-2xl bg-forest-900/10 sm:grid-cols-2">
+        <dl className="mt-6 grid gap-px overflow-hidden rounded-2xl bg-green-900/10 sm:grid-cols-2">
           {bankRows.map((row) => (
             <div
               key={row.label}
               className="flex items-center justify-between gap-4 bg-cream-50 px-5 py-4"
             >
               <div className="min-w-0">
-                <dt className="text-[0.68rem] font-semibold tracking-[0.16em] text-forest-800/50 uppercase">
+                <dt className="text-[0.68rem] font-semibold tracking-[0.16em] text-green-800/65 uppercase">
                   {row.label}
                 </dt>
-                <dd className="mt-1 truncate text-[0.92rem] font-medium text-forest-900">
+                <dd className="mt-1 truncate text-[0.92rem] font-medium text-green-900">
                   {row.value}
                 </dd>
               </div>
               <button
                 type="button"
                 onClick={() => copy(row.label, row.value)}
-                className="shrink-0 rounded-full border border-forest-900/12 px-3 py-1.5 text-[0.7rem] font-semibold text-forest-800/70 transition-colors hover:border-gold-500 hover:text-gold-500"
+                className="shrink-0 rounded-full border border-green-900/12 px-3 py-1.5 text-[0.7rem] font-semibold text-green-800/85 transition-colors hover:border-coral-600 hover:text-coral-700"
               >
                 {copied === row.label ? "Copied" : "Copy"}
               </button>

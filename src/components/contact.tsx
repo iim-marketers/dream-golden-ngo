@@ -49,7 +49,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="grain relative overflow-hidden bg-forest-900 py-12 text-cream-100 lg:py-16"
+      className="grain relative overflow-hidden bg-green-900 py-12 text-cream-100 lg:py-16"
     >
       <Image
         src="/images/cta-band.svg"
@@ -60,15 +60,15 @@ export function Contact() {
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-linear-to-r from-forest-950 via-forest-900/92 to-forest-900/70"
+        className="absolute inset-0 bg-linear-to-r from-green-950 via-green-900/92 to-green-900/70"
       />
 
       <div className="relative mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:gap-20 lg:px-8">
         <Reveal>
-          <p className="eyebrow text-gold-300">Visit Us</p>
+          <p className="eyebrow text-coral-300">Visit Us</p>
           <h2 className="mt-5 max-w-md font-heading text-3xl leading-[1.06] font-extrabold tracking-[-0.02em] uppercase sm:text-4xl lg:text-[2.85rem]">
             Connect With Our{" "}
-            <span className="bg-linear-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-coral-200 to-coral-400 bg-clip-text text-transparent">
               Field Office
             </span>
           </h2>
@@ -81,7 +81,7 @@ export function Contact() {
               external
               href={site.donateUrl}
               size="lg"
-              className="group h-13 rounded-full bg-gold-500 px-7 font-semibold text-forest-950 hover:bg-gold-400"
+              className="group h-13 rounded-full bg-coral-600 px-7 font-semibold text-cream-50 hover:bg-coral-500"
             >
               <HeartIcon className="size-4" />
               Sponsor a Cause Today
@@ -106,15 +106,15 @@ export function Contact() {
                 href={channel.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col gap-3 rounded-2xl border border-cream-100/12 bg-forest-800/45 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold-500/40 hover:bg-forest-800/70"
+                className="group flex h-full flex-col gap-3 rounded-2xl border border-cream-100/12 bg-green-800/45 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-coral-500/40 hover:bg-green-800/70"
               >
-                <span className="grid size-10 place-items-center rounded-full border border-gold-500/35 text-gold-300">
+                <span className="grid size-10 place-items-center rounded-full border border-coral-500/35 text-coral-300">
                   <channel.icon className="size-[1.05rem]" />
                 </span>
-                <span className="text-[0.68rem] font-semibold tracking-[0.16em] text-gold-400 uppercase">
+                <span className="text-[0.68rem] font-semibold tracking-[0.16em] text-coral-400 uppercase">
                   {channel.label}
                 </span>
-                <span className="text-[0.9rem] leading-relaxed text-cream-100/80">
+                <span className="text-[0.9rem] leading-relaxed break-words text-cream-100/80">
                   {channel.value}
                 </span>
               </a>

@@ -4,7 +4,7 @@ import { contact, nav, pillars, site } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-forest-950 text-cream-100/70">
+    <footer className="bg-green-950 text-cream-100/70">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
@@ -12,7 +12,7 @@ export function SiteFooter() {
             <p className="mt-5 max-w-sm text-[0.88rem] leading-relaxed">
               {site.legalName} — {site.tagline}
             </p>
-            <p className="mt-5 inline-flex rounded-full border border-gold-500/30 px-3.5 py-1.5 text-[0.7rem] tracking-wider text-gold-300">
+            <p className="mt-5 inline-flex rounded-full border border-coral-500/30 px-3.5 py-1.5 text-[0.7rem] tracking-wider text-coral-300">
               NITI Aayog Verified · {site.registration}
             </p>
           </div>
@@ -26,7 +26,7 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="transition-colors hover:text-gold-300"
+                    className="transition-colors hover:text-coral-300"
                   >
                     {item.label}
                   </a>
@@ -44,7 +44,7 @@ export function SiteFooter() {
                 <li key={pillar.id}>
                   <a
                     href="#pillars"
-                    className="transition-colors hover:text-gold-300"
+                    className="transition-colors hover:text-coral-300"
                   >
                     {pillar.name}
                   </a>
@@ -63,13 +63,13 @@ export function SiteFooter() {
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             <a
               href={`mailto:${contact.email}`}
-              className="transition-colors hover:text-gold-300"
+              className="transition-colors hover:text-coral-300"
             >
               {contact.email}
             </a>
             <a
               href={contact.phoneHref}
-              className="transition-colors hover:text-gold-300"
+              className="transition-colors hover:text-coral-300"
             >
               {contact.phone}
             </a>
