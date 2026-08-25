@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-label="Swapna Shiksha">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0E2A1B"/><stop offset="1" stop-color="#1B4A2F"/>
+    </linearGradient>
+    <radialGradient id="r" cx="0.72" cy="0.24" r="0.8">
+      <stop offset="0" stop-color="#C89440" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#C89440" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="d" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.1" fill="rgba(232,194,122,.16)"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#g)"/>
+  <rect width="1200" height="1200" fill="url(#d)"/>
+  <rect width="1200" height="1200" fill="url(#r)"/>
+  <g stroke="rgba(232,194,122,.16)" fill="none" stroke-width="2">
+    <circle cx="216" cy="1008" r="360"/>
+    <circle cx="1032" cy="192" r="288"/>
+  </g>
+  <g transform="translate(396 336) scale(4.080000000000001)">
+    <g fill="none" stroke="#E8C27A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"><path d="M50 18l34 16H16z"/><path d="M24 40v30M76 40v30M20 74h60"/><path d="M40 74V52h20v22"/></g>
+  </g>
+  <g transform="translate(600 983.9999999999999)" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif">
+    <text y="0" fill="#E8C27A" font-size="54" letter-spacing="7.2">SWAPNA SHIKSHA</text>
+    <text y="66" fill="#E8C27A" opacity=".55" font-size="33.6" font-family="ui-sans-serif, system-ui, sans-serif">Placeholder — replace with your field photo</text>
+  </g>
+</svg>
