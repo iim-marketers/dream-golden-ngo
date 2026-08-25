@@ -9,13 +9,11 @@ export const site = {
   shortName: "DGMC",
   tagline: "Turning small acts of kindness into lifelong transformation.",
   registration: "WB/2022/0333385",
-  donateUrl:
-    "https://pages.razorpay.com/pl_TBVLDFGhWCbVTu/view",
+  donateUrl: "https://pages.razorpay.com/pl_TBVLDFGhWCbVTu/view",
 } as const;
 
 export const contact = {
-  address:
-    "Belya Maharajpur, District – West Medinipur, West Bengal – 721260",
+  address: "Belya Maharajpur, District – West Medinipur, West Bengal – 721260",
   phone: "+91-90022-22268",
   phoneHref: "tel:+919002222268",
   whatsappHref: "https://wa.me/919002222268",
@@ -84,8 +82,7 @@ export const pillars: Pillar[] = [
     index: "01",
     name: "Swapna Shiksha",
     english: "Education Beyond Textbooks",
-    blurb:
-      "We don't just hand out bags; we reform classroom experiences.",
+    blurb: "We don't just hand out bags; we reform classroom experiences.",
     points: [
       "Teacher Support: Training and resources for rural government school teachers.",
       "Student Survival Kits: Books, tuition aid, and digital learning tools for kids at risk of dropping out.",
@@ -116,7 +113,7 @@ export const pillars: Pillar[] = [
     points: [
       "Nutrient-dense meal distributions for daily wage earners, elderly individuals, and struggling families.",
     ],
-    image: "/images/pillar-food.svg",
+    image: "/new-images/anna-seva.jpeg",
     icon: "bowl",
   },
   {
@@ -192,5 +189,8 @@ export const gallery = [
   { src: "/images/gallery-1.svg", alt: "Volunteers at a DGMC field drive" },
   { src: "/images/gallery-2.svg", alt: "Community care in Belya Maharajpur" },
   { src: "/images/gallery-3.svg", alt: "Children supported by Swapna Shiksha" },
-  { src: "/images/gallery-4.svg", alt: "Student survival kits being distributed" },
+  {
+    src: "/images/gallery-4.svg",
+    alt: "Student survival kits being distributed",
+  },
 ] as const;

@@ -23,6 +23,20 @@ const promises = [
 export function Hero() {
   return (
     <section className="grain relative overflow-hidden bg-green-900 text-cream-100">
+      <div aria-hidden className="absolute inset-0 hidden lg:block">
+        <Image
+          src="/new-images/hero-big.png"
+          alt=""
+          fill
+          priority
+          sizes="(max-width: 1023px) 92vw, 100vw"
+          className="object-cover object-[72%_center]"
+        />
+        <div className="absolute inset-0 bg-linear-to-r from-green-950 via-green-950/88 to-green-900/40" />
+
+        <div className="absolute inset-0 bg-linear-to-b from-green-950/70 via-transparent to-green-950/85" />
+      </div>
+
       {/* warm glow behind the collage */}
       <div
         aria-hidden
@@ -33,7 +47,7 @@ export function Hero() {
         className="pointer-events-none absolute bottom-[-20%] left-[-15%] size-136 rounded-full bg-green-600/25 blur-3xl"
       />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 py-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8 lg:py-16">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 py-12 sm:px-6 lg:min-h-[600px] lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8 lg:py-16">
         {/* ---------- copy ---------- */}
         <div>
           <p className="eyebrow rise-in text-coral-300">{hero.eyebrow}</p>
@@ -103,19 +117,18 @@ export function Hero() {
           </ul>
         </div>
 
-        {/* ---------- collage ---------- */}
         <div
-          className="zoom-in relative mx-auto w-full max-w-lg lg:max-w-none"
+          className="zoom-in relative mx-auto w-full max-w-lg lg:hidden"
           style={{ animationDelay: "0.15s" }}
         >
-          <div className="relative aspect-4/5 overflow-hidden rounded-[2rem] ring-1 ring-coral-500/25 sm:aspect-square lg:aspect-4/5">
+          <div className="relative aspect-16/10 overflow-hidden rounded-[2rem] ring-1 ring-coral-500/25">
             <Image
-              src="/images/hero-main.svg"
-              alt="A child from Belya Maharajpur supported by Swapna Shiksha"
+              src="/new-images/hero-mobile.png"
+              alt="A child from Belya Maharajpur working with his teacher, supported by DGMC"
               fill
               priority
-              sizes="(max-width: 1024px) 92vw, 44vw"
-              className="object-cover"
+              sizes="(max-width: 1023px) 92vw, 100vw"
+              className="object-cover object-[60%_center]"
             />
             <div
               aria-hidden

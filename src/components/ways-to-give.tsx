@@ -36,17 +36,17 @@ export function WaysToGive() {
             <StaggerItem key={way.id} className="h-full">
               <div
                 className={cn(
-                  "group flex h-full flex-col rounded-3xl border p-7 transition-all duration-300 hover:-translate-y-1 sm:p-8",
+                  "group flex h-full flex-col rounded-3xl border p-7 transition-all duration-300 hover:-translate-y-1 sm:p-8 border-coral-500/40",
                   way.featured
                     ? "grain border-coral-500/30 bg-green-700 text-cream-100"
-                    : "border-green-700/10 bg-white hover:border-coral-500/40 hover:shadow-[0_20px_45px_-28px_rgba(38,84,63,0.45)]",
+                    : " bg-white hover:shadow-[0_20px_45px_-28px_rgba(38,84,63,0.45)]",
                 )}
               >
                 <div className="flex items-center justify-between">
                   <span
                     className={cn(
                       "font-heading text-3xl font-extrabold tabular-nums",
-                      way.featured ? "text-coral-400/70" : "text-green-700/35",
+                      way.featured ? "text-coral-400/70" : "text-green-700/70",
                     )}
                   >
                     {way.index}
@@ -82,10 +82,7 @@ export function WaysToGive() {
                     external={way.href.startsWith("http")}
                     variant={way.featured ? "default" : "outline"}
                     className={cn(
-                      "group/btn h-11 w-full rounded-full",
-                      way.featured
-                        ? "bg-coral-600 text-cream-50 hover:bg-coral-500"
-                        : "border-green-700/15 bg-transparent text-green-700 hover:bg-green-700 hover:text-cream-50",
+                      "group/btn h-11 w-full rounded-full bg-coral-600 text-cream-50! hover:bg-coral-500",
                     )}
                   >
                     {way.cta}
