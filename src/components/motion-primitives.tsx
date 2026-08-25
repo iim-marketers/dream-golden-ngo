@@ -147,12 +147,12 @@ export function ProgressBar({
   return (
     <div
       className={cn(
-        "h-2 w-full overflow-hidden rounded-full bg-forest-900/10",
+        "h-2 w-full overflow-hidden rounded-full bg-green-900/10",
         className,
       )}
     >
       <motion.div
-        className="h-full rounded-full bg-linear-to-r from-gold-500 to-gold-300"
+        className="h-full rounded-full bg-linear-to-r from-coral-500 to-coral-300"
         initial={reduce ? { width: `${percent}%` } : { width: 0 }}
         whileInView={{ width: `${percent}%` }}
         viewport={{ once: true, margin: "-60px" }}

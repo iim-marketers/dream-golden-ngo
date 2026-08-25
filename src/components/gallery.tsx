@@ -10,8 +10,8 @@ export function Gallery() {
     <section className="bg-cream-100 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow text-gold-500">From the Field</p>
-          <h2 className="mt-5 font-heading text-3xl leading-[1.08] font-extrabold tracking-[-0.02em] text-forest-900 sm:text-4xl">
+          <p className="eyebrow text-coral-700">From the Field</p>
+          <h2 className="mt-5 font-heading text-3xl leading-[1.08] font-extrabold tracking-[-0.02em] text-green-900 sm:text-4xl">
             Belya Maharajpur, in Frames
           </h2>
         </Reveal>
@@ -20,7 +20,7 @@ export function Gallery() {
           {gallery.map((item, i) => (
             <StaggerItem key={item.src}>
               <figure
-                className="group relative aspect-4/5 overflow-hidden rounded-2xl ring-1 ring-forest-900/10"
+                className="group relative aspect-4/5 overflow-hidden rounded-2xl ring-1 ring-green-900/10"
                 style={{ marginTop: i % 2 === 1 ? "1.75rem" : undefined }}
               >
                 <Image
@@ -32,7 +32,7 @@ export function Gallery() {
                 />
                 <div
                   aria-hidden
-                  className="absolute inset-0 bg-linear-to-t from-forest-950/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  className="absolute inset-0 bg-linear-to-t from-green-950/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 translate-y-3 p-4 text-[0.78rem] font-medium text-cream-50 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                   {item.alt}

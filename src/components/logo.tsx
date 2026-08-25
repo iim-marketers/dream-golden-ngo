@@ -25,14 +25,14 @@ export function Logo({
         width={48}
         height={48}
         priority
-        className="size-12 shrink-0 rounded-full ring-1 ring-gold-500/30"
+        className="size-12 shrink-0 rounded-full ring-1 ring-coral-500/30"
       />
       {showWordmark && (
         <span className="leading-none">
           <span
             className={cn(
               "block font-heading text-[1.05rem] font-extrabold tracking-tight uppercase",
-              tone === "dark" ? "text-forest-900" : "text-cream-50",
+              tone === "dark" ? "text-green-900" : "text-cream-50",
             )}
           >
             Dream Golden
@@ -40,7 +40,7 @@ export function Logo({
           <span
             className={cn(
               "mt-1 block text-[0.6rem] font-semibold tracking-[0.28em] uppercase",
-              tone === "dark" ? "text-gold-500" : "text-gold-300",
+              tone === "dark" ? "text-coral-700" : "text-coral-300",
             )}
           >
             Memories Club

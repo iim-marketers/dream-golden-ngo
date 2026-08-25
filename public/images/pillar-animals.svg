@@ -1,28 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="640" viewBox="0 0 900 640" role="img" aria-label="Animal Shelter">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0E2A1B"/><stop offset="1" stop-color="#1B4A2F"/>
+      <stop offset="0" stop-color="#2B5043"/><stop offset="1" stop-color="#4C7D6A"/>
     </linearGradient>
     <radialGradient id="r" cx="0.72" cy="0.24" r="0.8">
-      <stop offset="0" stop-color="#C89440" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#C89440" stop-opacity="0"/>
+      <stop offset="0" stop-color="#C2543C" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#C2543C" stop-opacity="0"/>
     </radialGradient>
     <pattern id="d" width="14" height="14" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1.1" fill="rgba(232,194,122,.16)"/>
+      <circle cx="2" cy="2" r="1.1" fill="rgba(240,166,146,.13)"/>
     </pattern>
   </defs>
   <rect width="900" height="640" fill="url(#g)"/>
   <rect width="900" height="640" fill="url(#d)"/>
   <rect width="900" height="640" fill="url(#r)"/>
-  <g stroke="rgba(232,194,122,.16)" fill="none" stroke-width="2">
+  <g stroke="rgba(240,166,146,.13)" fill="none" stroke-width="2">
     <circle cx="162" cy="537.6" r="192"/>
     <circle cx="774" cy="102.4" r="153.6"/>
   </g>
   <g transform="translate(341.2 179.2) scale(2.176)">
-    <g fill="none" stroke="#E8C27A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"><ellipse cx="30" cy="38" rx="8" ry="11"/><ellipse cx="50" cy="30" rx="8" ry="11"/><ellipse cx="70" cy="38" rx="8" ry="11"/><path d="M50 48c14 0 22 10 22 19s-9 11-22 11-22-2-22-11 8-19 22-19z"/></g>
+    <g fill="none" stroke="#F0A692" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"><ellipse cx="30" cy="38" rx="8" ry="11"/><ellipse cx="50" cy="30" rx="8" ry="11"/><ellipse cx="70" cy="38" rx="8" ry="11"/><path d="M50 48c14 0 22 10 22 19s-9 11-22 11-22-2-22-11 8-19 22-19z"/></g>
   </g>
   <g transform="translate(450 524.8)" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif">
-    <text y="0" fill="#E8C27A" font-size="28.799999999999997" letter-spacing="3.84">ANIMAL SHELTER</text>
-    <text y="35.2" fill="#E8C27A" opacity=".55" font-size="17.92" font-family="ui-sans-serif, system-ui, sans-serif">Placeholder — replace with your field photo</text>
+    <text y="0" fill="#F0A692" font-size="28.799999999999997" letter-spacing="3.84">ANIMAL SHELTER</text>
+    <text y="35.2" fill="#F0A692" opacity=".55" font-size="17.92" font-family="ui-sans-serif, system-ui, sans-serif">Placeholder — replace with your field photo</text>
   </g>
 </svg>

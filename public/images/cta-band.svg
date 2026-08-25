@@ -1,28 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-label="Your Kindness">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0E2A1B"/><stop offset="1" stop-color="#1B4A2F"/>
+      <stop offset="0" stop-color="#2B5043"/><stop offset="1" stop-color="#4C7D6A"/>
     </linearGradient>
     <radialGradient id="r" cx="0.72" cy="0.24" r="0.8">
-      <stop offset="0" stop-color="#C89440" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#C89440" stop-opacity="0"/>
+      <stop offset="0" stop-color="#C2543C" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#C2543C" stop-opacity="0"/>
     </radialGradient>
     <pattern id="d" width="14" height="14" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1.1" fill="rgba(232,194,122,.16)"/>
+      <circle cx="2" cy="2" r="1.1" fill="rgba(240,166,146,.13)"/>
     </pattern>
   </defs>
   <rect width="1400" height="800" fill="url(#g)"/>
   <rect width="1400" height="800" fill="url(#d)"/>
   <rect width="1400" height="800" fill="url(#r)"/>
-  <g stroke="rgba(232,194,122,.16)" fill="none" stroke-width="2">
+  <g stroke="rgba(240,166,146,.13)" fill="none" stroke-width="2">
     <circle cx="252" cy="672" r="240"/>
     <circle cx="1204" cy="128" r="192"/>
   </g>
   <g transform="translate(564 224) scale(2.72)">
-    <g fill="none" stroke="#E8C27A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"><path d="M20 58l14-14a6 6 0 0 1 9 8l-7 7"/><path d="M80 58L66 44a6 6 0 0 0-9 8l7 7"/><path d="M50 30v26"/><path d="M24 62c10 12 42 12 52 0"/></g>
+    <g fill="none" stroke="#F0A692" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"><path d="M20 58l14-14a6 6 0 0 1 9 8l-7 7"/><path d="M80 58L66 44a6 6 0 0 0-9 8l7 7"/><path d="M50 30v26"/><path d="M24 62c10 12 42 12 52 0"/></g>
   </g>
   <g transform="translate(700 656)" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif">
-    <text y="0" fill="#E8C27A" font-size="36" letter-spacing="4.8">YOUR KINDNESS</text>
-    <text y="44" fill="#E8C27A" opacity=".55" font-size="22.400000000000002" font-family="ui-sans-serif, system-ui, sans-serif">Placeholder — replace with your field photo</text>
+    <text y="0" fill="#F0A692" font-size="36" letter-spacing="4.8">YOUR KINDNESS</text>
+    <text y="44" fill="#F0A692" opacity=".55" font-size="22.400000000000002" font-family="ui-sans-serif, system-ui, sans-serif">Placeholder — replace with your field photo</text>
   </g>
 </svg>
