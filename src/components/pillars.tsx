@@ -59,9 +59,9 @@ export function Pillars() {
                       aria-hidden
                       className="absolute inset-0 bg-linear-to-t from-green-950/55 to-transparent lg:bg-linear-to-r"
                     />
-                    <span className="absolute top-5 left-5 font-heading text-5xl font-extrabold text-cream-50/25 tabular-nums">
+                    {/* <span className="absolute top-5 left-5 font-heading text-5xl font-extrabold text-cream-50/25 tabular-nums">
                       {pillar.index}
-                    </span>
+                    </span> */}
                   </div>
 
                   {/* copy */}
