@@ -122,42 +122,6 @@ export function Hero() {
               className="absolute inset-0 bg-linear-to-t from-green-950/70 via-transparent to-transparent"
             />
           </div>
-
-          {/* floating "donate" card, echoing the campaign creative */}
-          {/* <div
-            className="rise-in absolute right-3 bottom-5 w-52 rounded-2xl border border-coral-500/30 bg-green-950/90 p-5 text-center backdrop-blur-sm sm:right-6 sm:w-56"
-            style={{ animationDelay: "0.5s" }}
-          >
-            <HeartIcon className="mx-auto size-5 text-coral-400" />
-            <p className="mt-2.5 font-heading text-2xl leading-none font-extrabold tracking-tight text-cream-50 uppercase">
-              Donate
-              <span className="mt-1 block text-coral-400">Now</span>
-            </p>
-            <p className="mt-3 text-[0.72rem] leading-relaxed text-cream-100/65">
-              Be the reason they see a brighter tomorrow.
-            </p>
-          </div> */}
-
-          {/* small stacked thumbnails */}
-          {/* <div className="absolute -bottom-5 -left-4 hidden gap-3 sm:flex lg:-left-8">
-            {["/images/hero-side-1.svg", "/images/hero-side-2.svg"].map(
-              (src, i) => (
-                <div
-                  key={src}
-                  className="rise-in relative size-20 overflow-hidden rounded-2xl ring-2 ring-green-900 lg:size-24"
-                  style={{ animationDelay: `${0.6 + i * 0.1}s` }}
-                >
-                  <Image
-                    src={src}
-                    alt=""
-                    fill
-                    sizes="96px"
-                    className="object-cover"
-                  />
-                </div>
-              ),
-            )}
-          </div> */}
         </div>
       </div>
 
