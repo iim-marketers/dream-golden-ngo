@@ -1,15 +1,14 @@
-/**
- * All landing-page copy lives here so content edits never require touching JSX.
- * Source: "DREAM GOLDEN NGO LANDING PAGE CONT" brief.
- */
-
 export const site = {
   name: "Dream Golden NGO",
   legalName: "Belyamaharajpur Dream Golden Memories Club",
   shortName: "DGMC",
   tagline: "Turning small acts of kindness into lifelong transformation.",
   registration: "WB/2022/0333385",
-  donateUrl: "https://pages.razorpay.com/pl_TBVLDFGhWCbVTu/view",
+  /* Overridable via env so a provider switch needs no code change. Inlined
+     at build time, so a change requires a redeploy. */
+  donateUrl:
+    process.env.NEXT_PUBLIC_DONATE_URL ??
+    "https://payments.cashfree.com/forms?code=dgmc",
 } as const;
 
 export const contact = {
@@ -87,7 +86,7 @@ export const pillars: Pillar[] = [
       "Teacher Support: Training and resources for rural government school teachers.",
       "Student Survival Kits: Books, tuition aid, and digital learning tools for kids at risk of dropping out.",
     ],
-    image: "/images/pillar-education.svg",
+    image: "/new-images/swapna-shiksha.jpeg",
     icon: "book",
   },
   {
@@ -101,7 +100,7 @@ export const pillars: Pillar[] = [
       "Preventive health awareness and free diagnostic camps.",
       "Distribution of critical medicines and emergency medical relief.",
     ],
-    image: "/images/pillar-health.svg",
+    image: "/new-images/gramin-swastha.jpeg",
     icon: "health",
   },
   {
@@ -125,7 +124,7 @@ export const pillars: Pillar[] = [
     points: [
       "Safe shelter, winter warmth, and veterinary care for 200+ rescued stray animals in West Medinipur.",
     ],
-    image: "/images/pillar-animals.svg",
+    image: "/new-images/karuna.jpeg",
     icon: "paw",
   },
 ];
