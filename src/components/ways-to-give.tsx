@@ -129,13 +129,16 @@ function BankDetails() {
           {bankRows.map((row) => (
             <div
               key={row.label}
-              className="flex items-center justify-between gap-4 bg-cream-50 px-5 py-4"
+              className="flex items-start justify-between gap-4 bg-cream-50 px-5 py-4"
             >
               <div className="min-w-0">
                 <dt className="text-[0.68rem] font-semibold tracking-[0.16em] text-green-800/65 uppercase">
                   {row.label}
                 </dt>
-                <dd className="mt-1 truncate text-[0.92rem] font-medium text-green-900">
+                {/* Wraps rather than truncates: these are details a donor has to
+                    read back against their banking app, and the account name
+                    overflows a phone-width row. */}
+                <dd className="mt-1 text-[0.92rem] font-medium wrap-break-word text-green-900">
                   {row.value}
                 </dd>
               </div>
