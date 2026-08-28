@@ -87,7 +87,7 @@ export const pillars: Pillar[] = [
       "Teacher Support: Training and resources for rural government school teachers.",
       "Student Survival Kits: Books, tuition aid, and digital learning tools for kids at risk of dropping out.",
     ],
-    image: "/images/pillar-education.svg",
+    image: "/new-images/swapna-shiksha.jpeg",
     icon: "book",
   },
   {
@@ -101,7 +101,7 @@ export const pillars: Pillar[] = [
       "Preventive health awareness and free diagnostic camps.",
       "Distribution of critical medicines and emergency medical relief.",
     ],
-    image: "/images/pillar-health.svg",
+    image: "/new-images/gramin-swastha.jpeg",
     icon: "health",
   },
   {
@@ -125,7 +125,7 @@ export const pillars: Pillar[] = [
     points: [
       "Safe shelter, winter warmth, and veterinary care for 200+ rescued stray animals in West Medinipur.",
     ],
-    image: "/images/pillar-animals.svg",
+    image: "/new-images/karuna.jpeg",
     icon: "paw",
   },
 ];
