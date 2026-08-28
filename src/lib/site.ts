@@ -1,15 +1,14 @@
-/**
- * All landing-page copy lives here so content edits never require touching JSX.
- * Source: "DREAM GOLDEN NGO LANDING PAGE CONT" brief.
- */
-
 export const site = {
   name: "Dream Golden NGO",
   legalName: "Belyamaharajpur Dream Golden Memories Club",
   shortName: "DGMC",
   tagline: "Turning small acts of kindness into lifelong transformation.",
   registration: "WB/2022/0333385",
-  donateUrl: "https://payments.cashfree.com/forms?code=dgmc",
+  /* Overridable via env so a provider switch needs no code change. Inlined
+     at build time, so a change requires a redeploy. */
+  donateUrl:
+    process.env.NEXT_PUBLIC_DONATE_URL ??
+    "https://payments.cashfree.com/forms?code=dgmc",
 } as const;
 
 export const contact = {
