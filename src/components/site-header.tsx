@@ -16,6 +16,11 @@ import { Logo } from "@/components/logo";
 import { HeartIcon, MenuIcon, PhoneIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { contact, nav, site } from "@/lib/site";
+import { scrollToSection } from "@/lib/scroll";
+
+/* Matches the sheet's close transition (see SheetContent) so the scroll
+   starts only once Base UI has released its body scroll lock. */
+const SHEET_CLOSE_MS = 200;
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -56,7 +61,11 @@ export function SiteHeader() {
         )}
       >
         <div className="mx-auto flex h-[var(--header-height)] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-          <a href="#top" aria-label={`${site.name} home`}>
+          <a
+            href="#top"
+            onClick={(event) => scrollToSection(event, "#top")}
+            aria-label={`${site.name} home`}
+          >
             <Logo />
           </a>
 
@@ -65,6 +74,7 @@ export function SiteHeader() {
               <a
                 key={item.href}
                 href={item.href}
+                onClick={(event) => scrollToSection(event, item.href)}
                 className="relative text-sm font-medium text-green-800/80 transition-colors hover:text-green-900 after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-coral-500 after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item.label}
@@ -105,7 +115,14 @@ export function SiteHeader() {
                   {nav.map((item) => (
                     <SheetClose
                       key={item.href}
-                      render={<a href={item.href} />}
+                      render={
+                        <a
+                          href={item.href}
+                          onClick={(event) =>
+                            scrollToSection(event, item.href, SHEET_CLOSE_MS)
+                          }
+                        />
+                      }
                       className="rounded-lg px-3 py-3 text-left font-heading text-lg font-semibold text-green-900 transition-colors hover:bg-cream-200/60"
                     >
                       {item.label}

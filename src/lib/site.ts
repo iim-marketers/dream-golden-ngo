@@ -9,7 +9,7 @@ export const site = {
   shortName: "DGMC",
   tagline: "Turning small acts of kindness into lifelong transformation.",
   registration: "WB/2022/0333385",
-  donateUrl: "https://pages.razorpay.com/pl_TBVLDFGhWCbVTu/view",
+  donateUrl: "https://payments.cashfree.com/forms?code=dgmc",
 } as const;
 
 export const contact = {
