@@ -4,9 +4,6 @@ import type { NextRequest } from "next/server";
 
 import { sendConversionEvent } from "@/lib/meta/conversions";
 
-/* Cashfree signs webhooks as base64(HMAC-SHA256(timestamp + rawBody, secret)).
-   The raw body must be hashed exactly as received — re-serializing the parsed
-   JSON reorders keys and changes whitespace, which breaks the digest. */
 function isSignatureValid(
   rawBody: string,
   timestamp: string | null,
@@ -26,9 +23,6 @@ function isSignatureValid(
   return a.length === b.length && timingSafeEqual(a, b);
 }
 
-/* Cashfree's payload shape varies by API version, and payment forms differ
-   again from the orders API. Rather than pin one shape, look through the
-   plausible locations for each field. */
 function pick(source: unknown, paths: string[][]): unknown {
   for (const path of paths) {
     let value: unknown = source;
@@ -100,7 +94,9 @@ export async function POST(request: NextRequest) {
   /* Only completed payments are conversions. Everything else is acknowledged
      with a 200 so Cashfree stops retrying it. */
   const succeeded =
-    type?.includes("PAYMENT_SUCCESS") || status === "SUCCESS" || status === "PAID";
+    type?.includes("PAYMENT_SUCCESS") ||
+    status === "SUCCESS" ||
+    status === "PAID";
 
   if (!succeeded) {
     return Response.json({ ignored: type ?? status ?? "unknown" });
@@ -150,24 +146,24 @@ export async function POST(request: NextRequest) {
   if (!orderId || value === undefined) {
     /* Logged in full: the payload shape differs between Cashfree versions, and
        the raw body is what makes the mismatch diagnosable. */
-    console.error("[cashfree] could not read order id or amount from:", rawBody);
+    console.error(
+      "[cashfree] could not read order id or amount from:",
+      rawBody,
+    );
     return Response.json({ error: "unrecognised payload" }, { status: 200 });
   }
 
   if (!email && !phone) {
     /* Still worth reporting, but Meta has nothing to match on, so it will not
        be attributed to an ad click. */
-    console.warn(`[cashfree] order ${orderId} has no email or phone to match on`);
+    console.warn(
+      `[cashfree] order ${orderId} has no email or phone to match on`,
+    );
   }
 
   const result = await sendConversionEvent({
     eventName: "Donate",
-    /* The order id doubles as the dedup key: Cashfree retries a webhook until
-       it gets a 200, and Meta discards repeats of an id it has already seen. */
     eventId: orderId,
-    /* Taken from the request rather than site config, so the reported origin
-       matches wherever this is actually deployed (preview URL or live domain)
-       instead of a hardcoded domain that may not serve the site yet. */
     eventSourceUrl: request.nextUrl.origin,
     signals: { email, phone },
     customData: { value, currency },
@@ -175,11 +171,11 @@ export async function POST(request: NextRequest) {
 
   if (!result.ok) {
     console.error("[cashfree] failed to report donation:", result.reason);
-    /* A 500 asks Cashfree to retry, which is the behaviour we want when the
-       failure is transient. */
     return Response.json({ error: "reporting failed" }, { status: 500 });
   }
 
-  console.log(`[cashfree] reported Donate ${currency} ${value} (order ${orderId})`);
+  console.log(
+    `[cashfree] reported Donate ${currency} ${value} (order ${orderId})`,
+  );
   return Response.json({ ok: true });
 }
