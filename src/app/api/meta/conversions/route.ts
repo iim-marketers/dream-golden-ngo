@@ -80,7 +80,10 @@ export async function POST(request: NextRequest) {
   });
 
   if (!result.ok) {
-    console.error("[meta-capi] failed to send event:", result.reason);
+    console.error(
+      `[meta-capi] failed to send event: ${result.reason} ` +
+        `fbtrace_id=${result.fbtraceId ?? "none"}`,
+    );
     return Response.json({ error: "upstream rejected" }, { status: 502 });
   }
 

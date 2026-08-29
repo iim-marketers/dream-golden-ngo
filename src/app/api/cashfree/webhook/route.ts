@@ -202,12 +202,16 @@ export async function POST(request: NextRequest) {
   });
 
   if (!result.ok) {
-    console.error("[cashfree] failed to report donation:", result.reason);
+    console.error(
+      `[cashfree] failed to report donation: ${result.reason} ` +
+        `fbtrace_id=${result.fbtraceId ?? "none"}`,
+    );
     return Response.json({ error: "reporting failed" }, { status: 500 });
   }
 
   console.log(
-    `[cashfree] reported Donate ${currency} ${value} (order ${orderId})`,
+    `[cashfree] reported Donate ${currency} ${value} (order ${orderId}) ` +
+      `events_received=${result.eventsReceived} fbtrace_id=${result.fbtraceId ?? "none"}`,
   );
   return Response.json({ ok: true });
 }

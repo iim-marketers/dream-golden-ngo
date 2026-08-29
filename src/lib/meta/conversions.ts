@@ -72,9 +72,12 @@ function buildUserData(signals: UserSignals) {
   return userData;
 }
 
+/* fbtrace_id identifies the request inside Meta's systems. It is the one thing
+   their support asks for when an event is accepted but never surfaces in Events
+   Manager, so it is carried back to the caller for logging. */
 export type SendResult =
-  | { ok: true; eventsReceived: number }
-  | { ok: false; reason: string };
+  | { ok: true; eventsReceived: number; fbtraceId?: string }
+  | { ok: false; reason: string; fbtraceId?: string };
 
 export async function sendConversionEvent(
   event: ConversionEvent,
@@ -98,6 +101,10 @@ export async function sendConversionEvent(
         custom_data: event.customData,
       },
     ],
+    /* Only set while debugging. With a code from Events Manager's Test Events
+       tab, events appear there in real time instead of waiting on aggregation.
+       Unset in normal operation, where JSON.stringify drops the key entirely. */
+    test_event_code: process.env.META_CAPI_TEST_EVENT_CODE,
     access_token: accessToken,
   };
 
@@ -113,17 +120,25 @@ export async function sendConversionEvent(
 
     const body = (await response.json()) as {
       events_received?: number;
-      error?: { message?: string };
+      fbtrace_id?: string;
+      error?: { message?: string; fbtrace_id?: string };
     };
+
+    const fbtraceId = body.fbtrace_id ?? body.error?.fbtrace_id;
 
     if (!response.ok) {
       return {
         ok: false,
         reason: body.error?.message ?? `HTTP ${response.status}`,
+        fbtraceId,
       };
     }
 
-    return { ok: true, eventsReceived: body.events_received ?? 0 };
+    return {
+      ok: true,
+      eventsReceived: body.events_received ?? 0,
+      fbtraceId,
+    };
   } catch (error) {
     return {
       ok: false,
