@@ -9,6 +9,7 @@ export const site = {
   donateUrl:
     process.env.NEXT_PUBLIC_DONATE_URL ??
     "https://payments.cashfree.com/forms?code=dgmc",
+  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "1473690964816595",
 } as const;
 
 export const contact = {
