@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Plus_Jakarta_Sans } from "next/font/google";
 
+import { MetaPixel } from "@/components/meta-pixel";
 import { contact, site } from "@/lib/site";
 import "./globals.css";
 
@@ -79,7 +80,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
       </head>
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        {children}
+        <MetaPixel />
+      </body>
     </html>
   );
 }
