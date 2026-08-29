@@ -51,6 +51,33 @@ function asString(value: unknown): string | undefined {
   return typeof value === "string" && value.length > 0 ? value : undefined;
 }
 
+/* Donor contact details are the match keys Meta needs, so it matters whether
+   they arrived. Logs persist and are widely readable, so only a masked form is
+   recorded: enough to confirm presence and spot a malformed value, not enough
+   to identify anyone. */
+function maskEmail(email: string | undefined): string {
+  if (!email) return "MISSING";
+  const [local, domain] = email.split("@");
+  if (!domain) return "MALFORMED";
+  return `${local.slice(0, 1)}***@${domain}`;
+}
+
+function maskPhone(phone: string | undefined): string {
+  if (!phone) return "MISSING";
+  const digits = phone.replace(/\D/g, "");
+  return digits.length <= 4
+    ? "TOO_SHORT"
+    : `***${digits.slice(-4)} (${digits.length} digits)`;
+}
+
+/* Key names only, never values: shows where Cashfree put the customer fields
+   when the expected paths come back empty. */
+function keysOf(value: unknown): string {
+  return typeof value === "object" && value !== null
+    ? Object.keys(value).join(",")
+    : "n/a";
+}
+
 export async function POST(request: NextRequest) {
   const secret = process.env.CASHFREE_WEBHOOK_SECRET;
 
@@ -153,11 +180,16 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "unrecognised payload" }, { status: 200 });
   }
 
+  console.log(
+    `[cashfree] order ${orderId} match keys — email: ${maskEmail(email)}, phone: ${maskPhone(phone)}`,
+  );
+
   if (!email && !phone) {
-    /* Still worth reporting, but Meta has nothing to match on, so it will not
-       be attributed to an ad click. */
+    const data = (payload as { data?: unknown }).data;
     console.warn(
-      `[cashfree] order ${orderId} has no email or phone to match on`,
+      `[cashfree] order ${orderId} has no email or phone to match on. ` +
+        `data keys: [${keysOf(data)}] customer_details keys: ` +
+        `[${keysOf((data as { customer_details?: unknown })?.customer_details)}]`,
     );
   }
 
