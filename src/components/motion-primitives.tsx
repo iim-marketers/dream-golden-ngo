@@ -29,7 +29,7 @@ export function Reveal({
       className={className}
       initial={reduce ? undefined : { opacity: 0, y }}
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-80px 0px" }}
       transition={{ duration: 0.7, delay, ease: EASE }}
     >
       {children}
@@ -64,7 +64,7 @@ export function StaggerGroup({
       variants={staggerParent}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-80px 0px" }}
     >
       {children}
     </motion.div>
@@ -123,7 +123,7 @@ export function CountUp({
   return (
     <motion.span
       className={className}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, margin: "-60px 0px" }}
       onViewportEnter={start}
     >
       {shown.toLocaleString("en-IN")}
@@ -143,21 +143,25 @@ export function ProgressBar({
   className?: string;
 }) {
   const reduce = useReducedMotion();
+  const [filled, setFilled] = useState(false);
 
+  // The track is what we observe, not the fill: the fill starts at zero width,
+  // and a zero-width box never registers as intersecting on narrow screens.
   return (
-    <div
+    <motion.div
       className={cn(
         "h-2 w-full overflow-hidden rounded-full bg-green-900/10",
         className,
       )}
+      viewport={{ once: true, margin: "-60px 0px" }}
+      onViewportEnter={() => setFilled(true)}
     >
       <motion.div
         className="h-full rounded-full bg-linear-to-r from-coral-500 to-coral-300"
-        initial={reduce ? { width: `${percent}%` } : { width: 0 }}
-        whileInView={{ width: `${percent}%` }}
-        viewport={{ once: true, margin: "-60px" }}
+        initial={false}
+        animate={{ width: reduce || filled ? `${percent}%` : 0 }}
         transition={{ duration: 1.1, delay, ease: EASE }}
       />
-    </div>
+    </motion.div>
   );
 }
