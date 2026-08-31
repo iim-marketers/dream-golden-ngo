@@ -51,8 +51,6 @@ export function SiteHeader() {
     };
   }, [open]);
 
-  /* Escape closes and hands focus back to the trigger; growing past the `lg`
-     breakpoint closes too, since the desktop nav takes over there. */
   useEffect(() => {
     if (!open) return;
     const onKeyDown = (event: KeyboardEvent) => {
@@ -109,7 +107,10 @@ export function SiteHeader() {
         <div className="mx-auto flex h-(--header-height) max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <a
             href="#top"
-            onClick={(event) => scrollToSection(event, "#top")}
+            onClick={(event) => {
+              scrollToSection(event, "#top");
+              setOpen(false);
+            }}
             aria-label={`${site.name} home`}
           >
             <Logo />
@@ -187,7 +188,7 @@ export function SiteHeader() {
                   >
                     <span
                       className={cn(
-                        "font-heading text-xl font-semibold transition-colors",
+                        "font-heading text-lg font-medium transition-colors",
                         isActive
                           ? "text-coral-700"
                           : "text-green-900 group-hover:text-coral-700",
@@ -274,11 +275,6 @@ function MenuToggleIcon({ open }: { open: boolean }) {
   );
 }
 
-/**
- * The nav href whose section currently sits just under the header, so the menu
- * can show where the reader already is. Measures the header instead of assuming
- * `--header-height`, so the two can never drift apart.
- */
 function useActiveSection(headerRef: React.RefObject<HTMLElement | null>) {
   const [active, setActive] = useState<string | null>(null);
 
