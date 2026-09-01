@@ -51,27 +51,6 @@ function asString(value: unknown): string | undefined {
   return typeof value === "string" && value.length > 0 ? value : undefined;
 }
 
-/* Donor contact details are the match keys Meta needs, so it matters whether
-   they arrived. Logs persist and are widely readable, so only a masked form is
-   recorded: enough to confirm presence and spot a malformed value, not enough
-   to identify anyone. */
-function maskEmail(email: string | undefined): string {
-  if (!email) return "MISSING";
-  const [local, domain] = email.split("@");
-  if (!domain) return "MALFORMED";
-  return `${local.slice(0, 1)}***@${domain}`;
-}
-
-function maskPhone(phone: string | undefined): string {
-  if (!phone) return "MISSING";
-  const digits = phone.replace(/\D/g, "");
-  return digits.length <= 4
-    ? "TOO_SHORT"
-    : `***${digits.slice(-4)} (${digits.length} digits)`;
-}
-
-/* Key names only, never values: shows where Cashfree put the customer fields
-   when the expected paths come back empty. */
 function keysOf(value: unknown): string {
   return typeof value === "object" && value !== null
     ? Object.keys(value).join(",")
@@ -88,8 +67,6 @@ export async function POST(request: NextRequest) {
 
   const rawBody = await request.text();
 
-  /* Verified before parsing: an unsigned request must never be able to inject
-     a fake donation into the ad data. */
   if (
     !isSignatureValid(
       rawBody,
@@ -118,8 +95,6 @@ export async function POST(request: NextRequest) {
     ]),
   );
 
-  /* Only completed payments are conversions. Everything else is acknowledged
-     with a 200 so Cashfree stops retrying it. */
   const succeeded =
     type?.includes("PAYMENT_SUCCESS") ||
     status === "SUCCESS" ||
@@ -171,18 +146,12 @@ export async function POST(request: NextRequest) {
   );
 
   if (!orderId || value === undefined) {
-    /* Logged in full: the payload shape differs between Cashfree versions, and
-       the raw body is what makes the mismatch diagnosable. */
     console.error(
       "[cashfree] could not read order id or amount from:",
       rawBody,
     );
     return Response.json({ error: "unrecognised payload" }, { status: 200 });
   }
-
-  console.log(
-    `[cashfree] order ${orderId} match keys — email: ${maskEmail(email)}, phone: ${maskPhone(phone)}`,
-  );
 
   if (!email && !phone) {
     const data = (payload as { data?: unknown }).data;
@@ -209,9 +178,5 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "reporting failed" }, { status: 500 });
   }
 
-  console.log(
-    `[cashfree] reported Donate ${currency} ${value} (order ${orderId}) ` +
-      `events_received=${result.eventsReceived} fbtrace_id=${result.fbtraceId ?? "none"}`,
-  );
   return Response.json({ ok: true });
 }

@@ -2,21 +2,6 @@ import Script from "next/script";
 
 import { site } from "@/lib/site";
 
-/**
- * Meta Pixel (browser) paired with the Conversions API (server).
- *
- * Both channels report the same PageView under a shared `eventID`. Meta
- * deduplicates on the (event name, event id) pair, so a visit counts once even
- * though it is reported twice — the redundancy is the point, since the browser
- * call is what ad blockers and ITP suppress.
- *
- * Everything happens inside the inline script on purpose. Driving it from a
- * React effect or from `onReady` does not work: for inline scripts, next/script
- * invokes `onReady` *before* appending the element, and an inline script does
- * not execute until it is appended — so `fbq` is still undefined at that point
- * and the browser-side event is silently dropped. Keeping the init, the track
- * and the server call in one script guarantees both ordering and a shared id.
- */
 export function MetaPixel() {
   return (
     <>

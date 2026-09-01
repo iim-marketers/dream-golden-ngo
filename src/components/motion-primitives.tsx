@@ -1,7 +1,12 @@
 "use client";
 
 import { useRef, useState, type ReactNode } from "react";
-import { animate, motion, useReducedMotion, type Variants } from "framer-motion";
+import {
+  animate,
+  motion,
+  useReducedMotion,
+  type Variants,
+} from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
@@ -88,12 +93,6 @@ export function StaggerItem({
   );
 }
 
-/**
- * Counts up to `value` once the number scrolls into view.
- *
- * Uses Framer's own viewport tracking (`onViewportEnter`) rather than
- * `useInView` so it fires off exactly the same observer as the bars below.
- */
 export function CountUp({
   value,
   suffix = "",
