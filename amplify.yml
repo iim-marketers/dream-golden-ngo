@@ -7,16 +7,13 @@ frontend:
         - corepack prepare pnpm@11.21.0 --activate
         - pnpm install --frozen-lockfile
     build:
-      # Amplify only puts console env vars in the BUILD environment, not the SSR
-      # runtime. Writing them to .env.production makes them readable by the
-      # server at request time. Names are listed explicitly so nothing else leaks in.
       commands:
         - env | grep -E '^(META_CAPI_ACCESS_TOKEN|META_CAPI_TEST_EVENT_CODE|CASHFREE_WEBHOOK_SECRET|CASHFREE_APP_ID|NEXT_PUBLIC_DONATE_URL|NEXT_PUBLIC_META_PIXEL_ID)=' >> .env.production || true
         - pnpm build
   artifacts:
     baseDirectory: .next
     files:
-      - '**/*'
+      - "**/*"
   cache:
     paths:
       - .next/cache/**/*
