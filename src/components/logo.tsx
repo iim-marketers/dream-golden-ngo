@@ -3,11 +3,6 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 
-/**
- * The club's emblem, cropped to its circle with transparent corners so it sits
- * cleanly on both the cream header and the dark footer. Source art lives at
- * `public/new-images/ngo-logo.jpeg`; the derived sizes are `public/logo*.png`.
- */
 export function Logo({
   className,
   tone = "dark",

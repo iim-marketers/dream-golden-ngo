@@ -14,8 +14,6 @@ import { cn } from "@/lib/utils";
 import { contact, nav, site } from "@/lib/site";
 import { scrollToSection } from "@/lib/scroll";
 
-/* Matches the panel's close transition below, so the scroll starts only once
-   the body scroll lock has been released. */
 const MENU_CLOSE_MS = 220;
 
 export function SiteHeader() {
@@ -32,9 +30,6 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* While the panel is open the page behind it must not scroll. The padding
-     compensates for a scrollbar that disappears with the overflow, which would
-     otherwise shift the header sideways. */
   useEffect(() => {
     if (!open) return;
     const { body } = document;

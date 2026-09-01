@@ -43,7 +43,9 @@ export const metadata: Metadata = {
       "From classrooms in rural West Medinipur to street shelters for abandoned animals — small acts of kindness, lifelong transformation.",
     siteName: site.legalName,
     locale: "en_IN",
-    images: [{ url: "/logo.png", width: 512, height: 512, alt: site.legalName }],
+    images: [
+      { url: "/logo.png", width: 512, height: 512, alt: site.legalName },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -72,11 +74,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
       <head>
-        {/*
-          Scroll reveals below the fold are driven by Framer Motion, which needs
-          JS to un-hide them. With JS off they would stay invisible forever, so
-          reset any element still carrying a motion "initial" style.
-        */}
         <noscript>
           <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
