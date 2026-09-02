@@ -8,7 +8,7 @@ frontend:
         - pnpm install --frozen-lockfile
     build:
       commands:
-        - env | grep -E '^(META_CAPI_ACCESS_TOKEN|META_CAPI_TEST_EVENT_CODE|CASHFREE_WEBHOOK_SECRET|CASHFREE_APP_ID|NEXT_PUBLIC_DONATE_URL|NEXT_PUBLIC_META_PIXEL_ID)=' >> .env.production || true
+        - env | grep -E '^(META_CAPI_ACCESS_TOKEN|META_CAPI_TEST_EVENT_CODE|CASHFREE_WEBHOOK_SECRET|CASHFREE_APP_ID|NEXT_PUBLIC_DONATE_URL|NEXT_PUBLIC_META_PIXEL_ID|NEXT_PUBLIC_SITE_URL)=' >> .env.production || true
         - pnpm build
   artifacts:
     baseDirectory: .next
