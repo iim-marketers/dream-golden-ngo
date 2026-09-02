@@ -4,12 +4,11 @@ export const site = {
   shortName: "DGMC",
   tagline: "Turning small acts of kindness into lifelong transformation.",
   registration: "WB/2022/0333385",
-  /* Overridable via env so a provider switch needs no code change. Inlined
-     at build time, so a change requires a redeploy. */
   donateUrl:
     process.env.NEXT_PUBLIC_DONATE_URL ??
     "https://payments.cashfree.com/forms?code=dgmc",
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "1473690964816595",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.dgmcngo.life",
 } as const;
 
 export const contact = {

@@ -3,7 +3,7 @@ import { Archivo, Plus_Jakarta_Sans } from "next/font/google";
 
 import { DonationThanks } from "@/components/donation-thanks";
 import { MetaPixel } from "@/components/meta-pixel";
-import { contact, site } from "@/lib/site";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const display = Archivo({
@@ -20,7 +20,8 @@ const body = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`https://${contact.portal}`),
+  metadataBase: new URL(site.url),
+  alternates: { canonical: "/" },
   title: {
     default: `${site.name} — Every Life Has a Story`,
     template: `%s | ${site.name}`,
@@ -38,6 +39,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
+    url: "/",
     title: `${site.name} — Every Life Has a Story`,
     description:
       "From classrooms in rural West Medinipur to street shelters for abandoned animals — small acts of kindness, lifelong transformation.",
