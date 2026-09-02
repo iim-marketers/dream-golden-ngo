@@ -118,7 +118,7 @@ export function Hero() {
         </div>
 
         <div
-          className="zoom-in relative mx-auto w-full max-w-lg lg:hidden"
+          className="zoom-in relative mx-auto w-full lg:hidden"
           style={{ animationDelay: "0.15s" }}
         >
           <div className="relative aspect-16/10 overflow-hidden rounded-[2rem] ring-1 ring-coral-500/25">
