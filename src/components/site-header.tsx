@@ -128,9 +128,9 @@ export function SiteHeader() {
             <LinkButton
               external
               href={site.donateUrl}
-              className="hidden h-10 rounded-full bg-coral-600 px-5 text-cream-50 shadow-none hover:bg-coral-500 sm:inline-flex"
+              className="hidden h-10 rounded-full bg-coral-600 px-5 text-cream-50 shadow-none hover:bg-coral-500 sm:inline-flex md:h-12 md:px-6 lg:h-14 lg:gap-2 lg:px-7 lg:text-base"
             >
-              <HeartIcon className="size-4" />
+              <HeartIcon className="size-4 lg:size-4.5" />
               Donate Now
             </LinkButton>
 
