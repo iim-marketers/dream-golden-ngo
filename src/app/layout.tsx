@@ -3,7 +3,7 @@ import { Archivo, Plus_Jakarta_Sans } from "next/font/google";
 
 import { DonationThanks } from "@/components/donation-thanks";
 import { MetaPixel } from "@/components/meta-pixel";
-import { site } from "@/lib/site";
+import { site, siteOnHold } from "@/lib/site";
 import "./globals.css";
 
 const display = Archivo({
@@ -19,7 +19,7 @@ const body = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-export const metadata: Metadata = {
+const liveMetadata: Metadata = {
   metadataBase: new URL(site.url),
   alternates: { canonical: "/" },
   title: {
@@ -65,6 +65,17 @@ export const metadata: Metadata = {
   },
 };
 
+/** Minimal, unindexed metadata for the holding screen. */
+const onHoldMetadata: Metadata = {
+  metadataBase: new URL(site.url),
+  title: `${site.name} — Temporarily Unavailable`,
+  description: `${site.legalName} — our website is temporarily unavailable.`,
+  robots: { index: false, follow: false },
+  icons: liveMetadata.icons,
+};
+
+export const metadata: Metadata = siteOnHold ? onHoldMetadata : liveMetadata;
+
 export const viewport: Viewport = {
   themeColor: "#0e2a1b",
 };
@@ -82,8 +93,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="flex min-h-full flex-col">
         {children}
-        <DonationThanks />
-        <MetaPixel />
+        {!siteOnHold && (
+          <>
+            <DonationThanks />
+            <MetaPixel />
+          </>
+        )}
       </body>
     </html>
   );
