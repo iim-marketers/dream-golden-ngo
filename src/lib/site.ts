@@ -11,6 +11,8 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.dgmcngo.life",
 } as const;
 
+export const siteOnHold: boolean = true;
+
 export const contact = {
   address: "Belya Maharajpur, District – West Medinipur, West Bengal – 721260",
   phone: "+91-90022-22268",
